@@ -4,6 +4,8 @@ const app = express();
 const webpush = require('web-push');
 const bodyParser = require('body-parser');
 
+const port = process.env.PORT || 3000;
+
 app.use(bodyParser.urlencoded({
     extended: true
 }));
@@ -40,6 +42,6 @@ app.post('/push', function(req, response) {
     });
 });
 
-app.listen(3000, function() {
-    console.log('Server started on port 3000!');
+app.listen(port, function() {
+    console.log(`Server started on ${port} port! Please visit: http://localhost:${port}`);
 });
